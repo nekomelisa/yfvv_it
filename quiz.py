@@ -148,9 +148,9 @@ def ask_question(
     show_answer_immediately: bool,
 ) -> dict | None:
     print("\n" + "=" * 70)
-    print(f"Питання {question_number}/{total}")
-    print(f"Тема {question['topic_id']}: {question['topic_name']}")
-    print(f"Номер у файлі: {question['source_number']}")
+    print(f"❓ Питання {question_number}/{total}")
+    print(f"📚 Тема {question['topic_id']}: {question['topic_name']}")
+    print(f"📄 Номер у файлі: {question['source_number']}")
     print("-" * 70)
     print(question["question"])
     print()
@@ -182,11 +182,13 @@ def ask_question(
 
     if show_answer_immediately:
         if is_correct:
-            print("\nПравильно.")
+            print("\n✅ Правильно.")
         else:
-            print(f"\nНеправильно. Правильна відповідь: {correct_answer}")
+            print(f"\n❌ Неправильно. Правильна відповідь: {correct_answer}")
 
-        print(f"Пояснення: {question['explanation']}")
+        print(f"💡 Пояснення: {question['explanation']}")
+
+        input("\n[Натисни Enter, щоб перейти до наступного питання...]")
 
     return {
         "question_number": question_number,
